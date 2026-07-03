@@ -1,18 +1,73 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene format=3 uid="uid://ds16d0c2axkf6"]
 
-[ext_resource type="Script" path="res://entities/resident/resident.gd" id="1"]
-[ext_resource type="Texture2D" path="res://entities/resident/sprites/walk_01.png" id="2"]
-[ext_resource type="Texture2D" path="res://entities/resident/sprites/walk_04.png" id="3"]
-[ext_resource type="Texture2D" path="res://entities/resident/sprites/walk_05.png" id="4"]
-[ext_resource type="Texture2D" path="res://entities/resident/sprites/action_02.png" id="5"]
-[ext_resource type="Texture2D" path="res://entities/resident/sprites/action_03.png" id="6"]
-[ext_resource type="Texture2D" path="res://entities/resident/sprites/action_04.png" id="7"]
-[ext_resource type="Texture2D" path="res://entities/resident/sprites/action_05.png" id="8"]
-[ext_resource type="Texture2D" path="res://entities/resident/sprites/action_06.png" id="9"]
-[ext_resource type="Texture2D" path="res://entities/resident/sprites/action_07.png" id="10"]
+[ext_resource type="Script" uid="uid://mcdvt247nn3k" path="res://entities/resident/resident.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://8cbdj1umlati" path="res://entities/resident/sprites/walk_01.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cr5osd8hwbtpe" path="res://entities/resident/sprites/walk_04.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bh0bcl0sbquwq" path="res://entities/resident/sprites/walk_05.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://df6a6mdc3lvh1" path="res://entities/resident/sprites/action_02.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://yihnwebo264e" path="res://entities/resident/sprites/action_03.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://5614ychirntl" path="res://entities/resident/sprites/action_04.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://djq5kvl0xwivg" path="res://entities/resident/sprites/action_05.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://bf8bq3vuv4kan" path="res://entities/resident/sprites/action_06.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://jymtwi4pnulr" path="res://entities/resident/sprites/action_07.png" id="10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_resident"]
-size = Vector2(20, 28)
+size = Vector2(16, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_resident"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10")
+}],
+"loop": 1,
+"name": &"crying",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6")
+}],
+"loop": 1,
+"name": &"reaching",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7")
+}],
+"loop": 1,
+"name": &"sitting_sad",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}],
+"loop": 1,
+"name": &"walking",
+"speed": 6.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bubble"]
 content_margin_left = 6.0
@@ -30,78 +85,24 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_resident"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4")
-}],
-"loop": true,
-"name": &"walking",
-"speed": 6.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6")
-}],
-"loop": true,
-"name": &"reaching",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7")
-}],
-"loop": true,
-"name": &"sitting_sad",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10")
-}],
-"loop": true,
-"name": &"crying",
-"speed": 3.0
-}]
-
-[node name="Resident" type="CharacterBody2D"]
+[node name="Resident" type="CharacterBody2D" unique_id=1433671851]
 script = ExtResource("1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1962820227]
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_resident")
 
-[node name="Visual" type="AnimatedSprite2D" parent="."]
+[node name="Visual" type="AnimatedSprite2D" parent="." unique_id=977315150]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_resident")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="ThoughtBubble" type="Node2D" parent="."]
-position = Vector2(0, -34)
+[node name="ThoughtBubble" type="Node2D" parent="." unique_id=1931639187]
 visible = false
+position = Vector2(0, -34)
 
-[node name="Label" type="Label" parent="ThoughtBubble"]
+[node name="Label" type="Label" parent="ThoughtBubble" unique_id=16059611]
 offset_left = -70.0
 offset_top = -24.0
 offset_right = 70.0
@@ -112,14 +113,13 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_bubble")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PickIntentTimer" type="Timer" parent="."]
+[node name="PickIntentTimer" type="Timer" parent="." unique_id=1945043088]
 wait_time = 2.0
 one_shot = true
 
-[node name="WalkToReachTimer" type="Timer" parent="."]
+[node name="WalkToReachTimer" type="Timer" parent="." unique_id=179741356]
 wait_time = 4.0
 one_shot = true
 
-[node name="ReactionTimer" type="Timer" parent="."]
-wait_time = 1.0
+[node name="ReactionTimer" type="Timer" parent="." unique_id=854231958]
 one_shot = true

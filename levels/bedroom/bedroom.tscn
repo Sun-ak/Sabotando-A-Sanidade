@@ -1,24 +1,28 @@
-[gd_scene load_steps=25 format=3]
+[gd_scene format=4 uid="uid://dwftwqg2mqfyd"]
 
-[ext_resource type="Script" path="res://levels/bedroom/bedroom_controller.gd" id="1"]
+[ext_resource type="Script" uid="uid://dgktdng7swqs" path="res://levels/bedroom/bedroom_controller.gd" id="1"]
 [ext_resource type="PackedScene" path="res://components/interactable/interactable_object.tscn" id="2"]
 [ext_resource type="Resource" path="res://resources/interactables/curtains.tres" id="3"]
 [ext_resource type="Resource" path="res://resources/interactables/phone.tres" id="4"]
 [ext_resource type="Resource" path="res://resources/interactables/laundry_basket.tres" id="5"]
 [ext_resource type="Resource" path="res://resources/interactables/door_key.tres" id="6"]
 [ext_resource type="Resource" path="res://resources/interactables/thoughts.tres" id="7"]
-[ext_resource type="PackedScene" path="res://entities/resident/resident.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://ds16d0c2axkf6" path="res://entities/resident/resident.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://ui/hud/hud.tscn" id="9"]
 [ext_resource type="PackedScene" path="res://ui/hud/resolution_overlay.tscn" id="10"]
-[ext_resource type="TileSet" path="res://levels/bedroom/bedroom_tileset.tres" id="11"]
-[ext_resource type="Texture2D" path="res://assets/tileset/beds.png" id="12"]
-[ext_resource type="Texture2D" path="res://assets/tileset/desks_dressers.png" id="13"]
-[ext_resource type="Texture2D" path="res://assets/tileset/door.png" id="14"]
-[ext_resource type="Texture2D" path="res://assets/tileset/rugs.png" id="15"]
-[ext_resource type="Texture2D" path="res://assets/tileset/wall_decor.png" id="16"]
-[ext_resource type="Texture2D" path="res://assets/sprites/decor/nightstand.png" id="17"]
-[ext_resource type="Texture2D" path="res://assets/sprites/decor/wall_clock.png" id="18"]
-[ext_resource type="AudioStream" path="res://sound_effects/game_song.mp3" id="19"]
+[ext_resource type="TileSet" uid="uid://tdedrri64w6k" path="res://levels/bedroom/bedroom_tileset.tres" id="11"]
+[ext_resource type="Texture2D" uid="uid://dvf8y5tai8r7k" path="res://assets/tileset/beds.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://b0gkrb5gcq324" path="res://assets/tileset/desks_dressers.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://gcqrvpsi2tpt" path="res://assets/tileset/door.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://t027oj5cuqag" path="res://assets/tileset/rugs.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://dbhjadlkvewd4" path="res://assets/tileset/wall_decor.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://nd5vukhn4xku" path="res://assets/sprites/decor/nightstand.png" id="17"]
+[ext_resource type="Texture2D" uid="uid://cp7ekk8ao3mcr" path="res://assets/sprites/decor/wall_clock.png" id="18"]
+[ext_resource type="AudioStream" uid="uid://b1lqsmh4vgl6h" path="res://sound_effects/game_song.mp3" id="19"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rug"]
+atlas = ExtResource("15")
+region = Rect2(16, 112, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bed"]
 atlas = ExtResource("12")
@@ -32,116 +36,117 @@ region = Rect2(160, 32, 96, 64)
 atlas = ExtResource("14")
 region = Rect2(0, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rug"]
-atlas = ExtResource("15")
-region = Rect2(16, 112, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_poster"]
 atlas = ExtResource("16")
 region = Rect2(0, 0, 32, 32)
 
-[node name="Bedroom" type="Node2D"]
+[node name="Bedroom" type="Node2D" unique_id=2029151439]
 script = ExtResource("1")
 
-[node name="FloorLayer" type="TileMapLayer" parent="."]
+[node name="FloorLayer" type="TileMapLayer" parent="." unique_id=1871524638]
 texture_filter = 1
 scale = Vector2(2, 2)
-tile_set = ExtResource("11")
 tile_map_data = PackedByteArray("AAAAAAIAAQAEAAAAAAABAAIAAQAEAAAAAAACAAIAAQAEAAAAAAADAAIAAQAEAAAAAAAEAAIAAQAEAAAAAAAFAAIAAQAEAAAAAAAGAAIAAQAEAAEAAAAHAAIAAQAEAAAAAAAIAAIAAQAEAAAAAAAJAAIAAQAEAAAAAAAKAAIAAQAEAAAAAAALAAIAAQAEAAAAAAAMAAIAAQAEAAAAAAANAAIAAQAEAAEAAAAOAAIAAQAEAAAAAAAPAAIAAQAEAAAAAAAQAAIAAQAEAAAAAAARAAIAAQAEAAAAAAASAAIAAQAEAAAAAAATAAIAAQAEAAAAAAAAAAMAAQAEAAAAAAABAAMAAQAEAAAAAAACAAMAAQAEAAEAAAADAAMAAQAEAAAAAAAEAAMAAQAEAAAAAAAFAAMAAQAEAAAAAAAGAAMAAQAEAAAAAAAHAAMAAQAEAAAAAAAIAAMAAQAEAAAAAAAJAAMAAQAEAAEAAAAKAAMAAQAEAAAAAAALAAMAAQAEAAAAAAAMAAMAAQAEAAAAAAANAAMAAQAEAAAAAAAOAAMAAQAEAAAAAAAPAAMAAQAEAAAAAAAQAAMAAQAEAAEAAAARAAMAAQAEAAAAAAASAAMAAQAEAAAAAAATAAMAAQAEAAAAAAAAAAQAAQAEAAAAAAABAAQAAQAEAAAAAAACAAQAAQAEAAAAAAADAAQAAQAEAAAAAAAEAAQAAQAEAAAAAAAFAAQAAQAEAAEAAAAGAAQAAQAEAAAAAAAHAAQAAQAEAAAAAAAIAAQAAQAEAAAAAAAJAAQAAQAEAAAAAAAKAAQAAQAEAAAAAAALAAQAAQAEAAAAAAAMAAQAAQAEAAEAAAANAAQAAQAEAAAAAAAOAAQAAQAEAAAAAAAPAAQAAQAEAAAAAAAQAAQAAQAEAAAAAAARAAQAAQAEAAAAAAASAAQAAQAEAAAAAAATAAQAAQAEAAEAAAAAAAUAAQAEAAAAAAABAAUAAQAEAAEAAAACAAUAAQAEAAAAAAADAAUAAQAEAAAAAAAEAAUAAQAEAAAAAAAFAAUAAQAEAAAAAAAGAAUAAQAEAAAAAAAHAAUAAQAEAAAAAAAIAAUAAQAEAAEAAAAJAAUAAQAEAAAAAAAKAAUAAQAEAAAAAAALAAUAAQAEAAAAAAAMAAUAAQAEAAAAAAANAAUAAQAEAAAAAAAOAAUAAQAEAAAAAAAPAAUAAQAEAAEAAAAQAAUAAQAEAAAAAAARAAUAAQAEAAAAAAASAAUAAQAEAAAAAAATAAUAAQAEAAAAAAAAAAYAAQAEAAAAAAABAAYAAQAEAAAAAAACAAYAAQAEAAAAAAADAAYAAQAEAAAAAAAEAAYAAQAEAAEAAAAFAAYAAQAEAAAAAAAGAAYAAQAEAAAAAAAHAAYAAQAEAAAAAAAIAAYAAQAEAAAAAAAJAAYAAQAEAAAAAAAKAAYAAQAEAAAAAAALAAYAAQAEAAEAAAAMAAYAAQAEAAAAAAANAAYAAQAEAAAAAAAOAAYAAQAEAAAAAAAPAAYAAQAEAAAAAAAQAAYAAQAEAAAAAAARAAYAAQAEAAAAAAASAAYAAQAEAAEAAAATAAYAAQAEAAAAAAAAAAcAAQAEAAEAAAABAAcAAQAEAAAAAAACAAcAAQAEAAAAAAADAAcAAQAEAAAAAAAEAAcAAQAEAAAAAAAFAAcAAQAEAAAAAAAGAAcAAQAEAAAAAAAHAAcAAQAEAAEAAAAIAAcAAQAEAAAAAAAJAAcAAQAEAAAAAAAKAAcAAQAEAAAAAAALAAcAAQAEAAAAAAAMAAcAAQAEAAAAAAANAAcAAQAEAAAAAAAOAAcAAQAEAAEAAAAPAAcAAQAEAAAAAAAQAAcAAQAEAAAAAAARAAcAAQAEAAAAAAASAAcAAQAEAAAAAAATAAcAAQAEAAAAAAAAAAgAAQAEAAAAAAABAAgAAQAEAAAAAAACAAgAAQAEAAAAAAADAAgAAQAEAAEAAAAEAAgAAQAEAAAAAAAFAAgAAQAEAAAAAAAGAAgAAQAEAAAAAAAHAAgAAQAEAAAAAAAIAAgAAQAEAAAAAAAJAAgAAQAEAAAAAAAKAAgAAQAEAAEAAAALAAgAAQAEAAAAAAAMAAgAAQAEAAAAAAANAAgAAQAEAAAAAAAOAAgAAQAEAAAAAAAPAAgAAQAEAAAAAAAQAAgAAQAEAAAAAAARAAgAAQAEAAEAAAASAAgAAQAEAAAAAAATAAgAAQAEAAAAAAAAAAkAAQAEAAAAAAABAAkAAQAEAAAAAAACAAkAAQAEAAAAAAADAAkAAQAEAAAAAAAEAAkAAQAEAAAAAAAFAAkAAQAEAAAAAAAGAAkAAQAEAAEAAAAHAAkAAQAEAAAAAAAIAAkAAQAEAAAAAAAJAAkAAQAEAAAAAAAKAAkAAQAEAAAAAAALAAkAAQAEAAAAAAAMAAkAAQAEAAAAAAANAAkAAQAEAAEAAAAOAAkAAQAEAAAAAAAPAAkAAQAEAAAAAAAQAAkAAQAEAAAAAAARAAkAAQAEAAAAAAASAAkAAQAEAAAAAAATAAkAAQAEAAAAAAAAAAoAAQAEAAAAAAABAAoAAQAEAAAAAAACAAoAAQAEAAEAAAADAAoAAQAEAAAAAAAEAAoAAQAEAAAAAAAFAAoAAQAEAAAAAAAGAAoAAQAEAAAAAAAHAAoAAQAEAAAAAAAIAAoAAQAEAAAAAAAJAAoAAQAEAAEAAAAKAAoAAQAEAAAAAAALAAoAAQAEAAAAAAAMAAoAAQAEAAAAAAANAAoAAQAEAAAAAAAOAAoAAQAEAAAAAAAPAAoAAQAEAAAAAAAQAAoAAQAEAAEAAAARAAoAAQAEAAAAAAASAAoAAQAEAAAAAAATAAoAAQAEAAAAAAA=")
+tile_set = ExtResource("11")
 
-[node name="WallLayer" type="TileMapLayer" parent="."]
+[node name="WallLayer" type="TileMapLayer" parent="." unique_id=686169436]
 texture_filter = 1
 scale = Vector2(2, 2)
-tile_set = ExtResource("11")
 tile_map_data = PackedByteArray("AAAAAAAAAAAGAAAAAAABAAAAAAAGAAAAAAACAAAAAAAGAAAAAAADAAAAAAAGAAAAAAAEAAAAAAAGAAAAAAAFAAAAAAAGAAAAAAAGAAAAAAAGAAAAAAAHAAAAAAAGAAAAAAAIAAAAAAAGAAAAAAAJAAAAAAAGAAAAAAAKAAAAAAAGAAAAAAALAAAAAAAGAAAAAAAMAAAAAAAGAAAAAAANAAAAAAAGAAAAAAAOAAAAAAAGAAAAAAAPAAAAAAAGAAAAAAAQAAAAAAAGAAAAAAARAAAAAAAGAAAAAAASAAAAAAAGAAAAAAATAAAAAAAGAAAAAAAAAAEAAAAGAAEAAAABAAEAAAAGAAEAAAACAAEAAAAGAAEAAAADAAEAAAAGAAEAAAAEAAEAAAAGAAEAAAAFAAEAAAAGAAEAAAAGAAEAAAAGAAEAAAAHAAEAAAAGAAEAAAAIAAEAAAAGAAEAAAAJAAEAAAAGAAEAAAAKAAEAAAAGAAEAAAALAAEAAAAGAAEAAAAMAAEAAAAGAAEAAAANAAEAAAAGAAEAAAAOAAEAAAAGAAEAAAAPAAEAAAAGAAEAAAAQAAEAAAAGAAEAAAARAAEAAAAGAAEAAAASAAEAAAAGAAEAAAATAAEAAAAGAAEAAAA=")
+tile_set = ExtResource("11")
 
-[node name="Rug" type="Sprite2D" parent="."]
+[node name="Rug" type="Sprite2D" parent="." unique_id=1212542540]
 texture_filter = 1
 position = Vector2(640, 480)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_rug")
 
-[node name="Bed" type="Sprite2D" parent="."]
+[node name="Bed" type="Sprite2D" parent="." unique_id=1244765402]
 texture_filter = 1
 position = Vector2(140, 224)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_bed")
 
-[node name="Nightstand" type="Sprite2D" parent="."]
+[node name="Nightstand" type="Sprite2D" parent="." unique_id=94319457]
 texture_filter = 1
 position = Vector2(240, 150)
 scale = Vector2(2, 2)
 texture = ExtResource("17")
 
-[node name="Dresser" type="Sprite2D" parent="."]
+[node name="Dresser" type="Sprite2D" parent="." unique_id=994516740]
 texture_filter = 1
 position = Vector2(820, 180)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_dresser")
 
-[node name="Door" type="Sprite2D" parent="."]
+[node name="Door" type="Sprite2D" parent="." unique_id=1767425114]
 texture_filter = 1
 position = Vector2(1120, 78)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_door")
 
-[node name="Poster" type="Sprite2D" parent="."]
+[node name="Poster" type="Sprite2D" parent="." unique_id=803975876]
 texture_filter = 1
 position = Vector2(560, 64)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_poster")
 
-[node name="WallClock" type="Sprite2D" parent="."]
+[node name="WallClock" type="Sprite2D" parent="." unique_id=1322872922]
 texture_filter = 1
 position = Vector2(660, 62)
 scale = Vector2(2, 2)
 texture = ExtResource("18")
 
-[node name="Curtains" parent="." instance=ExtResource("2")]
+[node name="Curtains" parent="." unique_id=38703347 instance=ExtResource("2")]
 position = Vector2(360, 76)
 scale = Vector2(2, 2)
 definition = ExtResource("3")
 
-[node name="Phone" parent="." instance=ExtResource("2")]
+[node name="Phone" parent="." unique_id=1112258941 instance=ExtResource("2")]
 position = Vector2(240, 130)
 scale = Vector2(2, 2)
 definition = ExtResource("4")
 
-[node name="LaundryBasket" parent="." instance=ExtResource("2")]
+[node name="LaundryBasket" parent="." unique_id=642735335 instance=ExtResource("2")]
 position = Vector2(330, 560)
 scale = Vector2(2, 2)
 definition = ExtResource("5")
 
-[node name="DoorKey" parent="." instance=ExtResource("2")]
+[node name="DoorKey" parent="." unique_id=1184859449 instance=ExtResource("2")]
 position = Vector2(820, 92)
 scale = Vector2(2, 2)
 definition = ExtResource("6")
 
-[node name="Thoughts" parent="." instance=ExtResource("2")]
+[node name="Thoughts" parent="." unique_id=365084429 instance=ExtResource("2")]
 position = Vector2(640, 400)
 scale = Vector2(2, 2)
 definition = ExtResource("7")
 
-[node name="Resident" parent="." instance=ExtResource("8")]
-position = Vector2(640, 500)
+[node name="Resident" parent="." unique_id=1148599636 instance=ExtResource("8")]
+position = Vector2(188, 233)
 scale = Vector2(2, 2)
 
-[node name="HUD" parent="." instance=ExtResource("9")]
+[node name="HUD" parent="." unique_id=639059554 instance=ExtResource("9")]
 
-[node name="ResolutionOverlay" parent="." instance=ExtResource("10")]
+[node name="ResolutionOverlay" parent="." unique_id=1061748057 instance=ExtResource("10")]
 
-[node name="SessionClock" type="Timer" parent="."]
+[node name="SessionClock" type="Timer" parent="." unique_id=1349854586]
 wait_time = 300.0
 one_shot = true
 
-[node name="AttemptTimer" type="Timer" parent="."]
+[node name="AttemptTimer" type="Timer" parent="." unique_id=700611340]
 wait_time = 6.0
 one_shot = true
 
-[node name="EnergyRegenTimer" type="Timer" parent="."]
-wait_time = 1.0
-autostart = false
+[node name="EnergyRegenTimer" type="Timer" parent="." unique_id=1844365364]
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=103806040]
 stream = ExtResource("19")
 volume_db = -8.0
+autoplay = true
+
+[node name="FadeInTela" type="ColorRect" parent="." unique_id=1141515645]
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

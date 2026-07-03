@@ -45,6 +45,7 @@ const TIER_COST: Dictionary[InteractableDefinition.CostTier, float] = {
 @onready var hud: HUD = $HUD
 @onready var resolution_overlay: ResolutionOverlay = $ResolutionOverlay
 @onready var music: AudioStreamPlayer = $Music
+@onready var fade_in_tela: ColorRect = $FadeInTela
 
 var hope: float = HOPE_START
 var dark_energy: float = ENERGY_MAX
@@ -98,10 +99,35 @@ func _reset_session() -> void:
 		obj.reset_to_default()
 	Input.set_custom_mouse_cursor(CURSOR_TEXTURE, Input.CURSOR_ARROW, Vector2(3.0, 2.0))
 	_start_music()
-	session_clock.start(SESSION_LENGTH_SECONDS)
-	energy_regen_timer.start()
+	
+	# Emitimos os valores iniciais para a HUD se atualizar enquanto está no escuro
 	hope_changed.emit(hope)
 	energy_changed.emit(dark_energy, energy_state)
+	
+	# Disparamos a transição cinematográfica de entrada
+	_play_intro_transition()
+
+## Controla a introdução dramática: segura o breu com a música tocando e revela o quarto.
+func _play_intro_transition() -> void:
+	if fade_in_tela:
+		# Garante o estado inicial correto visualmente
+		fade_in_tela.modulate.a = 1.0
+		fade_in_tela.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		
+		# 1. Mantém o jogo no breu total por 1.5 segundos enquanto a música roda
+		await get_tree().create_timer(1.5).timeout
+		
+		# 2. O fade preto esmaece lentamente (2.0 segundos) revelando o quarto
+		var tween: Tween = create_tween()
+		tween.tween_property(fade_in_tela, "modulate:a", 0.0, 2.0)
+		await tween.finished
+		
+		# Limpa o nó da árvore para otimização
+		fade_in_tela.queue_free()
+	
+	# 3. SESSÃO COMEÇA OFICIALMENTE: Os relógios disparam apenas após o término do fade
+	session_clock.start(SESSION_LENGTH_SECONDS)
+	energy_regen_timer.start()
 
 ## Background music loops for the whole session. The loop flag lives on the stream, which the
 ## MP3 import does not set by default -- forcing it here keeps the .import files untouched.
@@ -149,17 +175,7 @@ func _on_attempt_timer_timeout() -> void:
 		hope -= obj.definition.hope_penalty_on_sabotage
 	hope = clampf(hope, HOPE_MIN, HOPE_MAX)
 	hope_changed.emit(hope)
-	# Resolution MUST be evaluated before any flag is reset below. If this attempt is the Door
-	# Key's own intent and the player just sabotaged it, the resolution check needs to see
-	# is_sabotaged == true to correctly withhold the ending -- resetting first would make a
-	# just-defended key look "available" to the very check it was meant to block (caught during
-	# implementation review).
 	_evaluate_resolution()
-	# The resident's focus now shifts to a new target: EVERY object snaps back to its default
-	# state (not just the resolved one), so the room visually recovers between attempts and no
-	# object stays stuck in its sabotaged sprite. A sabotage therefore only counts within the
-	# attempt window it was played in -- holding the key at 100% Hope requires actively
-	# re-sabotaging it each attempt.
 	for other: InteractableObject in interactables_by_intent.values():
 		other.set_sabotaged(false)
 	_has_active_intent = false
@@ -178,8 +194,6 @@ func _evaluate_resolution() -> void:
 		if not key_obj.is_sabotaged:
 			resolution = ResolutionState.RESIDENT_ENDURES
 			session_resolved.emit(resolution)
-		# else: Hope holds at 100, no resolution yet (FR-016) -- re-evaluated on the next
-		# resolved attempt, whichever object it is.
 
 ## FR-017: the day ends in the resident's favor once time runs out, whether Hope is sitting
 ## below 100 or held there by a currently-sabotaged key.

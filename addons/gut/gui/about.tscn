@@ -54,7 +54,7 @@ fit_content = true
 
 [node name="Logo" parent="." unique_id=2097718136 instance=ExtResource("3_kpic4")]
 modulate = Color(0.74509805, 0.74509805, 0.74509805, 1)
-position = Vector2(151, 265)
+position = Vector2(414.99997, 363)
 scale = Vector2(0.8, 0.8)
 active = true
 disabled = true

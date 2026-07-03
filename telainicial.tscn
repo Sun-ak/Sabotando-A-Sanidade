@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://3y5lms62s47e" path="res://game sprites menu/Logo_Com_A-Photoroom.png" id="3_yx38d"]
 [ext_resource type="Texture2D" uid="uid://dndqs6ylaa03d" path="res://game sprites menu/start.png" id="4_vkgym"]
 [ext_resource type="Texture2D" uid="uid://c14uf3lx1xum5" path="res://game sprites menu/broken start.png" id="5_1rjia"]
-[ext_resource type="Script" uid="uid://dqfnsd7utdba8" path="res://texture_button.gd" id="6_tjto6"]
+[ext_resource type="Script" uid="uid://oq7i0rp65gv4" path="res://texture_button.gd" id="6_tjto6"]
+[ext_resource type="AudioStream" uid="uid://1k1dc1occigh" path="res://sound_effects/SomQuebra.mp3" id="8_vkgym"]
 
 [node name="Tela Inicial" type="Control" unique_id=674483476]
 layout_mode = 3
@@ -29,8 +30,8 @@ stretch_mode = 1
 [node name="Homens" type="TextureRect" parent="." unique_id=819281778]
 layout_mode = 0
 offset_top = -648.0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1280.0
+offset_bottom = 720.0
 texture = ExtResource("2_tjto6")
 expand_mode = 1
 stretch_mode = 1
@@ -38,8 +39,8 @@ stretch_mode = 1
 [node name="ColorRect" type="ColorRect" parent="." unique_id=881350724]
 layout_mode = 0
 offset_left = -6.1035156e-05
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1280.0
+offset_bottom = 720.0
 color = Color(0, 0, 0, 0.5019608)
 
 [node name="Logo" type="TextureRect" parent="." unique_id=1086787733]
@@ -69,6 +70,19 @@ offset_right = 296.0
 offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 0
+toggle_mode = true
+action_mode = 0
 texture_normal = ExtResource("4_vkgym")
 texture_pressed = ExtResource("5_1rjia")
 script = ExtResource("6_tjto6")
+
+[node name="FadeTela" type="ColorRect" parent="." unique_id=1892186230]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SomQuebra" type="AudioStreamPlayer2D" parent="." unique_id=1526632804]
+stream = ExtResource("8_vkgym")
