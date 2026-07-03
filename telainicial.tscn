@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://csvq7c3v8awhu"]
+
+[ext_resource type="Texture2D" uid="uid://cmkxkgwhq2ahu" path="res://game sprites menu/Fundo Roxo.png" id="1_mygx8"]
+[ext_resource type="Script" uid="uid://1g05boroe3h5" path="res://telainicial.gd" id="1_yx38d"]
+[ext_resource type="Texture2D" uid="uid://cscr6l6gq2kun" path="res://game sprites menu/Homens com buraco no peito.png" id="2_tjto6"]
+[ext_resource type="Texture2D" uid="uid://3y5lms62s47e" path="res://game sprites menu/Logo_Com_A-Photoroom.png" id="3_yx38d"]
+[ext_resource type="Texture2D" uid="uid://dndqs6ylaa03d" path="res://game sprites menu/start.png" id="4_vkgym"]
+[ext_resource type="Texture2D" uid="uid://c14uf3lx1xum5" path="res://game sprites menu/broken start.png" id="5_1rjia"]
+[ext_resource type="Script" uid="uid://dqfnsd7utdba8" path="res://texture_button.gd" id="6_tjto6"]
+
+[node name="Tela Inicial" type="Control" unique_id=674483476]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yx38d")
+
+[node name="Fundo_Roxo" type="TextureRect" parent="." unique_id=1069048891]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("1_mygx8")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Homens" type="TextureRect" parent="." unique_id=819281778]
+layout_mode = 0
+offset_top = -648.0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_tjto6")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=881350724]
+layout_mode = 0
+offset_left = -6.1035156e-05
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="Logo" type="TextureRect" parent="." unique_id=1086787733]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -265.0
+offset_top = -23.29
+offset_right = 265.1797
+offset_bottom = 432.3331
+grow_horizontal = 2
+rotation = 0.010648847
+texture = ExtResource("3_yx38d")
+expand_mode = 3
+
+[node name="Start" type="TextureButton" parent="." unique_id=1743864874]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -293.0
+offset_top = -247.0
+offset_right = 296.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("4_vkgym")
+texture_pressed = ExtResource("5_1rjia")
+script = ExtResource("6_tjto6")
