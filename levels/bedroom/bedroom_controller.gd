@@ -46,6 +46,7 @@ const TIER_COST: Dictionary[InteractableDefinition.CostTier, float] = {
 @onready var resolution_overlay: ResolutionOverlay = $ResolutionOverlay
 @onready var music: AudioStreamPlayer = $Music
 @onready var fade_in_tela: ColorRect = $FadeInTela
+@onready var iluminacao_quarto: CanvasModulate = $IluminacaoQuarto
 
 var hope: float = HOPE_START
 var dark_energy: float = ENERGY_MAX
@@ -71,6 +72,9 @@ func _ready() -> void:
 	attempt_timer.timeout.connect(_on_attempt_timer_timeout)
 	energy_regen_timer.timeout.connect(_on_energy_regen_timer_timeout)
 	_reset_session()
+	# Conecta a mudança de esperança ao sistema de iluminação dinâmica
+	hope_changed.connect(_on_hope_changed_iluminacao)
+	
 
 ## research.md R3: the day-end decision is signal-driven (_on_session_clock_timeout); this is only
 ## the cosmetic HH:MM label's polling source.
@@ -217,3 +221,18 @@ func _update_energy_state() -> void:
 		energy_state = EnergyState.CRITICAL
 	else:
 		energy_state = EnergyState.RECHARGING
+
+func _on_hope_changed_iluminacao(new_value: float) -> void:
+	if iluminacao_quarto == null:
+		return
+	
+	# Mapeia a esperança (0.0 a 100.0) para uma escala de brilho entre 0.15 (sombrio) e 1.0 (totalmente claro)
+	var percentual_hope: float = new_value / HOPE_MAX
+	var intensidade: float = lerp(0.15, 1.0, percentual_hope)
+	
+	# Criamos uma cor dinâmica: conforme escurece, puxamos levemente para o azul/roxo (sombrio)
+	iluminacao_quarto.color = Color(
+		intensidade * 0.9,   # Remove um pouco do vermelho
+		intensidade * 0.85,  # Remove um pouco do verde
+		intensidade * 1.15   # Destaca o azul para dar o tom da "Energia Sombria"
+	)

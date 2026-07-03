@@ -1,17 +1,17 @@
 keys,pt_BR
 UI_HOPE_LABEL,Esperança
-UI_ENERGY_LABEL,Energia Sombria
+UI_ENERGY_LABEL,Depressão
 OBJ_CURTAINS_NAME,Cortinas
-OBJ_PHONE_NAME,Celular
+OBJ_PHONE_NAME,Televisão
 OBJ_LAUNDRY_NAME,Roupas Sujas
 OBJ_KEY_NAME,Chave da Porta
 OBJ_THOUGHTS_NAME,Pensamentos
-BUBBLE_CURTAINS,Quer abrir a janela
-BUBBLE_PHONE,Quer usar o celular
-BUBBLE_LAUNDRY,Quer arrumar as roupas
-BUBBLE_DOOR_KEY,Quer pegar a chave
-BUBBLE_THOUGHTS,Tentando se acalmar
-BUBBLE_SEARCHING,Procurando
+BUBBLE_CURTAINS,Hmm... acho que vou abrir a janela
+BUBBLE_PHONE,Quero assistir um pouco de tv
+BUBBLE_LAUNDRY,Vou arrumar minhas roupas
+BUBBLE_DOOR_KEY,Acho que vou sair um pouco...
+BUBBLE_THOUGHTS,*Se acalmando*
+BUBBLE_SEARCHING,Eu vou melhorar! Eu consigo!
 RES_DEPRESSION_PREVAILS_TITLE,A sanidade foi sabotada.
-RES_RESIDENT_ENDURES_TITLE,Mais um dia foi vivido.
+RES_RESIDENT_ENDURES_TITLE,"Outro dia se passou... Um dia após o outro"
 UI_PLAY_AGAIN,Jogar novamente

@@ -14,8 +14,8 @@ signal intent_selected(intent: InteractableDefinition.IntentType)
 
 const INTER_ATTEMPT_PAUSE_SECONDS: float = 2.0
 const MAX_WALK_SECONDS: float = 4.0
-const REACTION_BEAT_SECONDS: float = 1.0
-const WALK_SPEED: float = 240.0
+const REACTION_BEAT_SECONDS: float = 2.0
+const WALK_SPEED: float = 120.0
 const ARRIVAL_DISTANCE: float = 8.0
 
 const BUBBLE_KEY_BY_INTENT: Dictionary[InteractableDefinition.IntentType, String] = {

@@ -77,3 +77,6 @@ func _on_start_pressed() -> void:
 	# 4. Transiciona para o quarto enquanto a tela está 100% escura
 	# Com base nos seus prints, o caminho provável da cena é este:
 	get_tree().change_scene_to_file("res://levels/bedroom/bedroom.tscn")
+	
+func _on_créditos_pressed() -> void:
+	get_tree().change_scene_to_file("res://créditos.tscn")

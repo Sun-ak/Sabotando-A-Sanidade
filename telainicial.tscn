@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c14uf3lx1xum5" path="res://game sprites menu/broken start.png" id="5_1rjia"]
 [ext_resource type="Script" uid="uid://oq7i0rp65gv4" path="res://texture_button.gd" id="6_tjto6"]
 [ext_resource type="AudioStream" uid="uid://1k1dc1occigh" path="res://sound_effects/SomQuebra.mp3" id="8_vkgym"]
+[ext_resource type="Texture2D" uid="uid://c5r7mul6ou013" path="res://game sprites menu/credits.svg" id="9_1rjia"]
 
 [node name="Tela Inicial" type="Control" unique_id=674483476]
 layout_mode = 3
@@ -59,15 +60,15 @@ expand_mode = 3
 
 [node name="Start" type="TextureButton" parent="." unique_id=1743864874]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -293.0
-offset_top = -247.0
-offset_right = 296.0
-offset_bottom = -34.0
+anchor_right = 0.52000004
+anchor_bottom = 1.057
+offset_left = -573.0
+offset_top = -249.0
+offset_right = -9.600037
+offset_bottom = -77.04004
 grow_horizontal = 2
 grow_vertical = 0
 toggle_mode = true
@@ -86,3 +87,13 @@ color = Color(0, 0, 0, 1)
 
 [node name="SomQuebra" type="AudioStreamPlayer2D" parent="." unique_id=1526632804]
 stream = ExtResource("8_vkgym")
+
+[node name="créditos" type="Button" parent="." unique_id=1224738867]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 466.0
+offset_right = 1108.0
+offset_bottom = 687.0
+icon = ExtResource("9_1rjia")
+
+[connection signal="pressed" from="créditos" to="." method="_on_créditos_pressed"]

@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://bn1ty2kd2ggao"]
+
+[ext_resource type="Script" uid="uid://57fb2jdlfgio" path="res://créditos.gd" id="1_ghmfe"]
+[ext_resource type="Texture2D" uid="uid://cmkxkgwhq2ahu" path="res://game sprites menu/Fundo Roxo.png" id="2_y0w3k"]
+[ext_resource type="FontFile" uid="uid://bll38n2ct6qme" path="res://addons/gut/fonts/LobsterTwo-BoldItalic.ttf" id="3_oll04"]
+[ext_resource type="FontFile" uid="uid://dis65h8wxc3f2" path="res://addons/gut/fonts/LobsterTwo-Italic.ttf" id="4_yjp2v"]
+[ext_resource type="Texture2D" uid="uid://bpw2hqwqxiqa8" path="res://concept_art/1.png" id="5_bufuw"]
+[ext_resource type="Texture2D" uid="uid://dx6s5uuqc437j" path="res://concept_art/heads.png" id="6_26oio"]
+[ext_resource type="Texture2D" uid="uid://dgep5655qgars" path="res://concept_art/xxv.png" id="7_felxy"]
+[ext_resource type="Texture2D" uid="uid://mwlpqkmrtnfs" path="res://concept_art/ppl.png" id="8_hwbsq"]
+[ext_resource type="Texture2D" uid="uid://14ksoow872x2" path="res://concept_art/other.png" id="9_hb2m3"]
+[ext_resource type="Texture2D" uid="uid://df05v7jv7qex2" path="res://concept_art/room concept.png" id="10_651io"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xe13j"]
+font = ExtResource("3_oll04")
+font_size = 55
+
+[sub_resource type="LabelSettings" id="LabelSettings_yecgg"]
+font = ExtResource("4_yjp2v")
+font_size = 20
+
+[node name="Créditos" type="Control" unique_id=1530576327]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ghmfe")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=830998528]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_y0w3k")
+
+[node name="Título" type="Label" parent="." unique_id=1658015361]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -759.0
+offset_top = -21.0
+offset_right = -66.0
+offset_bottom = 99.0
+grow_horizontal = 2
+text = "Créditos a equipe"
+label_settings = SubResource("LabelSettings_xe13j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Membros" type="Label" parent="." unique_id=846600254]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 73.0
+offset_right = 426.0
+offset_bottom = 340.0
+text = "Miguel Victor Costa de Almeida Vale Gomes
+
+Luis Carlos Macedo Moreira
+
+Luis Eduardo Cartaxo Santos
+
+Giovanna Silva Pires Soares Castro
+
+Tiago Victor"
+label_settings = SubResource("LabelSettings_yecgg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1360823129]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 359.0
+offset_right = 389.0
+offset_bottom = 637.0
+texture = ExtResource("5_bufuw")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1898301098]
+layout_mode = 0
+offset_left = 809.0
+offset_top = 11.0
+offset_right = 1259.0
+offset_bottom = 331.0
+texture = ExtResource("6_26oio")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=1035504872]
+layout_mode = 0
+offset_left = 486.0
+offset_top = 513.0
+offset_right = 733.0
+offset_bottom = 708.0
+texture = ExtResource("7_felxy")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="." unique_id=1190667994]
+layout_mode = 0
+offset_left = 810.0
+offset_top = 349.0
+offset_right = 1260.0
+offset_bottom = 669.0
+texture = ExtResource("8_hwbsq")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="." unique_id=227380722]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 275.0
+offset_right = 783.0
+offset_bottom = 501.0
+texture = ExtResource("9_hb2m3")
+expand_mode = 1
+
+[node name="TextureRect7" type="TextureRect" parent="." unique_id=951601293]
+layout_mode = 0
+offset_left = 557.0
+offset_top = 44.0
+offset_right = 793.0
+offset_bottom = 250.0
+texture = ExtResource("10_651io")
+expand_mode = 1
