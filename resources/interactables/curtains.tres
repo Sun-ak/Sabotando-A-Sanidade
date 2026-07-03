@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="InteractableDefinition" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://components/interactable/interactable_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/interactables/curtains_open.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/interactables/curtains_closed.png" id="3"]
+
+[ext_resource type="AudioStream" path="res://sound_effects/curtains.mp3" id="4"]
+
+[resource]
+script = ExtResource("1")
+id = &"curtains"
+intent = 0
+display_name_key = "OBJ_CURTAINS_NAME"
+gesture = 0
+hope_gain_on_success = 10.0
+hope_penalty_on_sabotage = 15.0
+energy_cost_tier = 0
+sabotaged_state_key = &"closed"
+default_state_key = &"open"
+blocks_door_resolution = false
+default_texture = ExtResource("2")
+sabotaged_texture = ExtResource("3")
+sabotage_sound = ExtResource("4")
