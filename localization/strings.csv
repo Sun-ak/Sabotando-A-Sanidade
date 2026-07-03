@@ -1,0 +1,17 @@
+keys,pt_BR
+UI_HOPE_LABEL,Esperança
+UI_ENERGY_LABEL,Energia Sombria
+OBJ_CURTAINS_NAME,Cortinas
+OBJ_PHONE_NAME,Celular
+OBJ_LAUNDRY_NAME,Roupas Sujas
+OBJ_KEY_NAME,Chave da Porta
+OBJ_THOUGHTS_NAME,Pensamentos
+BUBBLE_CURTAINS,Quer abrir a janela
+BUBBLE_PHONE,Quer usar o celular
+BUBBLE_LAUNDRY,Quer arrumar as roupas
+BUBBLE_DOOR_KEY,Quer pegar a chave
+BUBBLE_THOUGHTS,Tentando se acalmar
+BUBBLE_SEARCHING,Procurando
+RES_DEPRESSION_PREVAILS_TITLE,A sanidade foi sabotada.
+RES_RESIDENT_ENDURES_TITLE,Mais um dia foi vivido.
+UI_PLAY_AGAIN,Jogar novamente

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="InteractableDefinition" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://components/interactable/interactable_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/interactables/key_32x32_24f.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/interactables/key_32x32_24f_hidden.png" id="3"]
+
+[resource]
+script = ExtResource("1")
+id = &"door_key"
+intent = 3
+display_name_key = "OBJ_KEY_NAME"
+gesture = 2
+hope_gain_on_success = 5.0
+hope_penalty_on_sabotage = 0.0
+energy_cost_tier = 2
+sabotaged_state_key = &"hidden"
+default_state_key = &"visible"
+blocks_door_resolution = true
+default_texture = ExtResource("2")
+sabotaged_texture = ExtResource("3")
+texture_frame_count = 24
+texture_frames_per_second = 16.0

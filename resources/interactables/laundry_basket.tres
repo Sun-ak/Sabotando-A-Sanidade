@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="InteractableDefinition" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://components/interactable/interactable_definition.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/interactables/laundry_standing.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/interactables/laundry_fallen.png" id="3"]
+
+[ext_resource type="AudioStream" path="res://sound_effects/messing_up_hidden_clothes.mp3" id="4"]
+
+[resource]
+script = ExtResource("1")
+id = &"laundry_basket"
+intent = 2
+display_name_key = "OBJ_LAUNDRY_NAME"
+gesture = 1
+hope_gain_on_success = 8.0
+hope_penalty_on_sabotage = 0.0
+energy_cost_tier = 1
+sabotaged_state_key = &"fallen"
+default_state_key = &"standing"
+blocks_door_resolution = false
+default_texture = ExtResource("2")
+sabotaged_texture = ExtResource("3")
+sabotage_sound = ExtResource("4")
